@@ -12,4 +12,4 @@ for todo in todos:
 
 
 # Provide an input field to add new tasks
-st.text_input(label="", placeholder="Add new todo")
+st.text_input(label="", placeholder="Add new todo", on_change=functions.add_todo, key="new_todo")
