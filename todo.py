@@ -1,9 +1,15 @@
 import streamlit as st
 import functions
+import os
 
 # Set the title and introduction text
 st.title("ToDo App")
 st.write("This app will help you to increase your productivity.")
+
+# Check if the 'todos.txt' file exists; if not, create an empty file
+if not os.path.exists("files/todos.txt"):
+    with open("files/todos.txt", 'w') as file:
+        pass
 
 # Display checkboxes for existing tasks
 todos = functions.get_todos()
