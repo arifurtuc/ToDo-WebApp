@@ -42,3 +42,6 @@ def add_todo():
 
     # Write the updated list of todos back to the file
     write_todos(todos)
+
+    # Clear the text input field value
+    st.session_state["new_todo"] = ""

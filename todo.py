@@ -7,8 +7,17 @@ st.write("This app will help you to increase your productivity.")
 
 # Display checkboxes for existing tasks
 todos = functions.get_todos()
-for todo in todos:
-    st.checkbox(todo)
+
+# Iterate through the todos, displaying checkboxes and processing user interactions
+for index, todo in enumerate(todos):
+    checkbox = st.checkbox(todo, key=todo)
+    if checkbox:
+        todos.pop(index)
+        functions.write_todos(todos)
+        del st.session_state[todo]
+
+        # Rerun the Streamlit app to reflect the changes
+        st.rerun()
 
 
 # Provide an input field to add new tasks
